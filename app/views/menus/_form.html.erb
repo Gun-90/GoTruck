@@ -1,0 +1,42 @@
+<%= form_with(model: menu, local: true) do |form| %>
+  <% if menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+      <% menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :menu_name %>
+    <%= form.text_field :menu_name, id: :menu_menu_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_id %>
+    <%= form.text_field :truck_id, id: :menu_truck_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :menu_price %>
+    <%= form.number_field :menu_price, id: :menu_menu_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :menu_image %>
+    <%= form.text_field :menu_image, id: :menu_menu_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :menu_category %>
+    <%= form.text_field :menu_category, id: :menu_menu_category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

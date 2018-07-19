@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu_name: MyString
+  truck: one
+  menu_price: 1
+  menu_image: MyString
+  menu_category: MyString
+
+two:
+  menu_name: MyString
+  truck: two
+  menu_price: 1
+  menu_image: MyString
+  menu_category: MyString

@@ -1,0 +1,57 @@
+<%= form_with(model: truck, local: true) do |form| %>
+  <% if truck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+
+      <ul>
+      <% truck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :truck_name %>
+    <%= form.text_field :truck_name, id: :truck_truck_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_x %>
+    <%= form.text_field :truck_x, id: :truck_truck_x %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_y %>
+    <%= form.text_field :truck_y, id: :truck_truck_y %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_sns %>
+    <%= form.text_field :truck_sns, id: :truck_truck_sns %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_sns2 %>
+    <%= form.text_field :truck_sns2, id: :truck_truck_sns2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_phone %>
+    <%= form.text_field :truck_phone, id: :truck_truck_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_cover %>
+    <%= form.text_field :truck_cover, id: :truck_truck_cover %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_category %>
+    <%= form.text_field :truck_category, id: :truck_truck_category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: posting, local: true) do |form| %>
+  <% if posting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
+
+      <ul>
+      <% posting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :posting_title %>
+    <%= form.text_field :posting_title, id: :posting_posting_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :truck_id %>
+    <%= form.text_field :truck_id, id: :posting_truck_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
