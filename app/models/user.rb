@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_one :truck
   has_one :profile
+  has_many :followings
+  has_many :likes
+  
   
 end
