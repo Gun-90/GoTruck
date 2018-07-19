@@ -1,0 +1,2 @@
+class PostingReview < ApplicationRecord
+end

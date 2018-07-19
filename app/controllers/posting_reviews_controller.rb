@@ -1,0 +1,2 @@
+class PostingReviewsController < ApplicationController
+end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posting_reviews
+  resources :truck_reviews
   devise_for :users
   resources :likes
   resources :followings
