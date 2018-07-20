@@ -17,11 +17,11 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.mobile_num %></td>
-        <td><%= profile.adress %></td>
-        <td><%= profile.birthday %></td>
-        <td><%= profile.user %></td>
+        <td><%= profile.profile_name %></td>
+        <td><%= profile.profile_mobile %></td>
+        <td><%= profile.profile_adress %></td>
+        <td><%= profile.profile_birthday %></td>
+        <td><%= profile.user_id %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
