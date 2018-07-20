@@ -75,10 +75,11 @@ ActiveRecord::Schema.define(version: 20180719123024) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "name"
-    t.string "mobile_num"
-    t.string "adress"
-    t.string "birthday"
+    t.string "profile_name"
+    t.string "profile_mobile"
+    t.string "profile_adress"
+    t.string "profile_birthday"
+    t.string "profile_image"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
