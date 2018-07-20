@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
   
   
-  devise_for :users do
-    resources :profiles
-    resources :trucks do
+  devise_for :users 
+  resources :profiles
+  resources :trucks do
       resources :menus
       resources :truck_reviews
       resources :postings do
         resources :posting_parts
         resources :posting_reviews
-      end
     end
   end
-  
   resources :likes
   resources :followings
   
