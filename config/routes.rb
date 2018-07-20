@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
-  resources :posting_reviews
-  resources :truck_reviews
-  devise_for :users
+  
+  
+  devise_for :users do
+    resources :profiles
+    resources :trucks do
+      resources :menus
+      resources :truck_reviews
+      resources :postings do
+        resources :posting_parts
+        resources :posting_reviews
+      end
+    end
+  end
+  
   resources :likes
   resources :followings
-  resources :posting_parts
-  resources :postings
-  resources :menus
-  resources :trucks
-  resources :profiles
+  
+ 
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
