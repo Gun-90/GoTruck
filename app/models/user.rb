@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_one :profile
   has_many :followings
   has_many :likes
-  validates :user, uniqueness: true
+  
   
 end

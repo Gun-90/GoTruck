@@ -9,6 +9,7 @@ class CreateTrucks < ActiveRecord::Migration[5.1]
       t.string :truck_phone
       t.string :truck_cover
       t.string :truck_category
+      t.belongs_to :user
 
       t.timestamps
     end

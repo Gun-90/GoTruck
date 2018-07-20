@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 20180719123024) do
     t.string "truck_phone"
     t.string "truck_cover"
     t.string "truck_category"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trucks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
