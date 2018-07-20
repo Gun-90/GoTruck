@@ -34,11 +34,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 #추가한 내용
-gem 'devise'      #회원관리 CURD
-gem 'bootstrap'   #bootstrap 사용
-gem 'carrierwave' #업로더 기능 사용
-gem 'mini_magick' #이미지 파일 처리
-gem 'pry-rails'   #pry console창 사용
+gem 'devise'                              #회원관리 CURD
+gem 'bootstrap'                           #bootstrap 사용
+gem 'carrierwave'                         #업로더 기능 사용
+gem 'mini_magick'                         #이미지 파일 처리
+gem 'pry-rails'                           #pry console창 사용
+gem 'jquery-rails'                        #jquery 사용
+gem 'devise-bootstrap-views'              #devise bootstrap 사용
+gem 'rails-i18n', '~> 5.1'                #지역설정 devise 한글작업
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
