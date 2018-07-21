@@ -10,6 +10,7 @@ class PostingsController < ApplicationController
   # GET /postings/1
   # GET /postings/1.json
   def show
+    @truck = Truck.find(params[:truck_id])
   end
 
   # GET /postings/new
@@ -20,6 +21,7 @@ class PostingsController < ApplicationController
 
   # GET /postings/1/edit
   def edit
+    @truck = Truck.find(params[:truck_id])
   end
 
   # POST /postings
@@ -44,6 +46,7 @@ class PostingsController < ApplicationController
   # PATCH/PUT /postings/1
   # PATCH/PUT /postings/1.json
   def update
+    @truck = Truck.find(params[:truck_id])
     respond_to do |format|
       if @posting.update(posting_params)
         format.html { redirect_to @posting, notice: 'Posting was successfully updated.' }
