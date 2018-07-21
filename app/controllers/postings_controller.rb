@@ -25,7 +25,10 @@ class PostingsController < ApplicationController
   # POST /postings
   # POST /postings.json
   def create
-    @posting = Posting.new(posting_params)
+    @truck = Truck.find(params[:truck_id])
+    @posting = Posting.new( params.require(:posting).permit(:posting_title))
+    @posting.truck_id = params[:truck_id]
+    
 
     respond_to do |format|
       if @posting.save
