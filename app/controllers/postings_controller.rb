@@ -4,7 +4,8 @@ class PostingsController < ApplicationController
   # GET /postings
   # GET /postings.json
   def index
-    @postings = Posting.all
+    @truck = Truck.find(params[:truck_id])
+    @postings = @truck.postings
   end
 
   # GET /postings/1

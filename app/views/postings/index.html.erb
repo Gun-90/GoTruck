@@ -16,9 +16,9 @@
       <tr>
         <td><%= posting.posting_title %></td>
         <td><%= posting.truck %></td>
-        <td><%= link_to 'Show', posting %></td>
-        <td><%= link_to 'Edit', edit_posting_path(posting) %></td>
-        <td><%= link_to 'Destroy', posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', truck_posting_path(@truck,posting) %></td>
+        <td><%= link_to 'Edit', edit_truck_posting_path(@truck,posting) %></td>
+        <td><%= link_to 'Destroy', truck_posting_path(@truck,posting), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
