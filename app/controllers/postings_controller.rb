@@ -32,7 +32,7 @@ class PostingsController < ApplicationController
 
     respond_to do |format|
       if @posting.save
-        format.html { redirect_to @posting, notice: 'Posting was successfully created.' }
+        format.html { redirect_to [@truck,@posting], notice: 'Posting was successfully created.' }
         format.json { render :show, status: :created, location: @posting }
       else
         format.html { render :new }
