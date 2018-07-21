@@ -6,7 +6,10 @@ class MenusController < ApplicationController
   # GET /menus.json
   
   def index
-    @menus = Menu.all
+    @truck = Truck.find(params[:truck_id])
+    @menus = @truck.menus
+    @menu_new = Menu.new 
+    
   end
 
   # GET /menus/1
@@ -21,16 +24,18 @@ class MenusController < ApplicationController
 
   # GET /menus/1/edit
   def edit
+    @truck= Truck.find(params[:truck_id])
   end
 
   # POST /menus
   # POST /menus.json
   def create
-    @menu = Menu.new(menu_params)
-
+    @menu = Menu.new(params.require(:menu).permit(:menu_name, :menu_price, :menu_image, :menu_category))
+    @truck = Truck.find(params[:truck_id])
+    @menu.truck_id = params[:truck_id]
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
+        format.html { redirect_to truck_menus_path(@truck), notice: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render :new }

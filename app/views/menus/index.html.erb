@@ -22,9 +22,8 @@
         <td><%= menu.menu_price %></td>
         <td><%= menu.menu_image %></td>
         <td><%= menu.menu_category %></td>
-        <td><%= link_to 'Show', menu %></td>
-        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_truck_menu_path(@truck, menu) %></td>
+        <td><%= link_to 'Destroy', truck_menu_path(@truck,menu), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Menu', new_menu_path %>
+<%= render 'form', menu: [@truck, @menu_new] %>
