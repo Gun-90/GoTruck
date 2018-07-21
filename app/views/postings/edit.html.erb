@@ -1,6 +1,6 @@
 <h1>Editing Posting</h1>
 
-<%= render 'form', posting: @posting %>
+<%= render 'form', posting: [@truck, @posting] %>
 
-<%= link_to 'Show', @posting %> |
-<%= link_to 'Back', postings_path %>
+<%= link_to 'Show', truck_posting_path(@truck, @posting) %> |
+<%= link_to 'Back', truck_postings_path(@truck) %>
