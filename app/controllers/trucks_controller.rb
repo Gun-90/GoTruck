@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :authenticate_member!,except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
 
   # GET /trucks

@@ -1,3 +1,3 @@
 class PostingPartsController < ApplicationController
-    before_action :authenticate_member!
+    before_action :authenticate_user!
 end
