@@ -5,6 +5,15 @@
   <%= @truck.truck_name %>
 </p>
 
+<% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.menu_state %></td>
+        <td><%= menu.menu_name %></td>
+        <td><%= menu.menu_price %></td>
+        <td><%= menu.menu_image %></td>
+        <td><%= menu.menu_category %></td>
+    <% end %>
+<%= link_to '메뉴 등록', truck_menus_path(@truck) %>
 <p>
   <strong>Truck x:</strong>
   <%= @truck.truck_x %>
