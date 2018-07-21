@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   resources :trucks do
       resources :menus
       resources :truck_reviews
-      resources :postings do
-        resources :posting_parts
-        resources :posting_reviews
-    end
+      resources :postings
   end
+  resources :posting_parts
+  resources :posting_reviews
   resources :likes
   resources :followings
   
