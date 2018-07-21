@@ -14,6 +14,7 @@ class PostingsController < ApplicationController
 
   # GET /postings/new
   def new
+    @truck = Truck.find(params[:truck_id])
     @posting = Posting.new
   end
 
