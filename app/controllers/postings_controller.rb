@@ -6,7 +6,9 @@ class PostingsController < ApplicationController
   def index
     @truck = Truck.find(params[:truck_id])
     @postings = @truck.postings
+    
   end
+  
 
   # GET /postings/1
   # GET /postings/1.json
@@ -50,7 +52,7 @@ class PostingsController < ApplicationController
     @truck = Truck.find(params[:truck_id])
     respond_to do |format|
       if @posting.update(posting_params)
-        format.html { redirect_to @posting, notice: 'Posting was successfully updated.' }
+        format.html { redirect_to truck_postings_path(@truck), notice: 'Posting was successfully updated.' }
         format.json { render :show, status: :ok, location: @posting }
       else
         format.html { render :edit }
@@ -62,9 +64,10 @@ class PostingsController < ApplicationController
   # DELETE /postings/1
   # DELETE /postings/1.json
   def destroy
+    @truck = Truck.find(params[:truck_id])
     @posting.destroy
     respond_to do |format|
-      format.html { redirect_to postings_url, notice: 'Posting was successfully destroyed.' }
+      format.html { redirect_to truck_postings_url(@truck), notice: 'Posting was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
