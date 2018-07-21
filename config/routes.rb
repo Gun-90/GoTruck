@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :posting_reviews
   resources :likes
   resources :followings
-  
+  root "trucks#index"
  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
