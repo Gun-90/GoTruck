@@ -42,6 +42,7 @@ gem 'pry-rails'                           #pry console창 사용
 gem 'jquery-rails'                        #jquery 사용
 gem 'devise-bootstrap-views'              #devise bootstrap 사용
 gem 'rails-i18n', '~> 5.1'                #지역설정 devise 한글작업
+gem 'tinymce-rails'
 
 
 group :development, :test do

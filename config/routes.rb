@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :communities
   devise_for :users 
   resources :profiles
   resources :trucks do
