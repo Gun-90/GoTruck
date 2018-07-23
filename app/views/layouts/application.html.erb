@@ -3,7 +3,7 @@
   <head>
     <title>Gotruck</title>
     <%= csrf_meta_tags %>
-
+    <%= link_to '로그아웃',destroy_user_session_path ,method: :delete, data: { confirm: '로그 아웃 하시겠습니까?' }%>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application'%>
   </head>
