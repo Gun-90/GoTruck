@@ -13,6 +13,7 @@ class TrucksController < ApplicationController
   def show
     @menus = @truck.menus
     @truck_reviews = @truck.truck_reviews
+    @truck_review = TruckReview.new
   end
 
   # GET /trucks/new
