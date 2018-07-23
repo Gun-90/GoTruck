@@ -11,6 +11,13 @@ class TruckReviewsController < ApplicationController
     end
     
     def destroy
+        @truck = Truck.find(params[:truck_id])
+        @truck_review = TruckReview.find(params[:id])
+        @truck_review.destroy
+        respond_to do |format|
+          format.html { redirect_to truck_path(@truck), notice: 'Truck Review was successfully destroyed.' }
+          format.json { head :no_content }
+        end
     end
 
 end

@@ -66,6 +66,6 @@
 <% end %>
 
 <% @truck_reviews.each do |r| %>
-<div><%= r.user.nickname %>|<%= image_tag r.truck_review_image.url if r.truck_review_image? %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
+<div><%= r.user.nickname %>|<%= image_tag r.truck_review_image.url if r.truck_review_image? %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%= link_to "삭제",truck_truck_review_path(@truck,r.id), method: :delete %></div>
 
 <% end %> 
