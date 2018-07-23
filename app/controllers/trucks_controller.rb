@@ -14,6 +14,11 @@ class TrucksController < ApplicationController
     @menus = @truck.menus
     @truck_reviews = @truck.truck_reviews
     @truck_review = TruckReview.new
+    if Like.find_by(user: current_user, truck: @truck).nil?
+      @button = '좋아요'
+    else
+      @button = '좋아요 취소'
+    end
   end
 
   # GET /trucks/new

@@ -30,7 +30,7 @@ class MenusController < ApplicationController
   # POST /menus
   # POST /menus.json
   def create
-    @menu = Menu.new(params.require(:menu).permit(:menu_name, :menu_price, :menu_image, :menu_category))
+    @menu = Menu.new(params.require(:menu).permit(:menu_name, :menu_price, :menu_image, :menu_category, :menu_state))
     @truck = Truck.find(params[:truck_id])
     @menu.truck_id = params[:truck_id]
     respond_to do |format|
@@ -76,6 +76,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:menu_name, :truck_id, :menu_price, :menu_image, :menu_category)
+      params.require(:menu).permit(:menu_name, :truck_id, :menu_price, :menu_image, :menu_category, :menu_state)
     end
 end
