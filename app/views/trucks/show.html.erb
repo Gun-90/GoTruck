@@ -51,3 +51,19 @@
 
 <%= link_to 'Edit', edit_truck_path(@truck) %> |
 <%= link_to 'Back', trucks_path %>
+
+
+<%= form_for [@truck, @truck_review] do |r| %>
+<%= r.label 'image' %>
+<%= r.text_field :truck_review_image %>
+
+<%= r.label 'review' %>
+<%= r.text_field :truck_review_content %>
+
+<%= r.submit %>
+<% end %>
+
+<% @truck_reviews.each do |r| %>
+<div><%= r.user.nickname %>|<%= r.truck_review_image %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
+
+<% end %> 
