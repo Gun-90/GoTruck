@@ -6,7 +6,7 @@
 </p>
 <%= link_to '메뉴 등록', truck_menus_path(@truck) %>|
 <%= link_to '포스팅 등록', new_truck_posting_path(@truck) %>
-<div>
+
 <strong>좋아요:</strong>
   <div>
     <%= @truck.likes.count %> 명이 좋아합니다.
@@ -16,14 +16,15 @@
 </form>
 
 <% @menus.each do |menu| %>
-      <tr>
+      <div>
         <td><%= menu.menu_state %></td>
         <td><%= menu.menu_name %></td>
         <td><%= menu.menu_price %></td>
         <td><%= menu.menu_image %></td>
         <td><%= menu.menu_category %></td>
+        </div>
     <% end %>
-</div>
+
 
 <p>
   <strong>Truck sns:</strong>
@@ -65,6 +66,6 @@
 <% end %>
 
 <% @truck_reviews.each do |r| %>
-<div><%= r.user.nickname %>|<%= image_tag r.image.url if r.image? %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
+<div><%= r.user.nickname %>|<%= image_tag r.truck_review_image.url if r.truck_review_image? %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
 
 <% end %> 
