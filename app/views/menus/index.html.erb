@@ -22,6 +22,7 @@
         <td><%= menu.menu_price %></td>
         <td><%= menu.menu_image %></td>
         <td><%= menu.menu_category %></td>
+        <td><%= menu.menu_information %></td>
         <td><%= menu.menu_state %></td>
         <td><%= link_to 'Edit', edit_truck_menu_path(@truck, menu) %></td>
         <td><%= link_to 'Destroy', truck_menu_path(@truck,menu), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +33,3 @@
 
 <br>
 
-<%= render 'form', menu: [@truck, @menu_new] %>

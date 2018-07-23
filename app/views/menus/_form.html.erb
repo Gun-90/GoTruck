@@ -1,42 +1,47 @@
-<%= form_with(model: menu, local: true) do |form| %>
-  <% if menu.last.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(menu.last.errors.count, "error") %> prohibited this menu from being saved:</h2>
-
-      <ul>
-      <% menu.last.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="container">
+    <div class="left-side">
+      <img class="left-side-img" src="https://source.unsplash.com/category/people"></img>
+      <div class="left-side-bg">
+        <div class="company-name"><a href="#"><i class="material-icons">clear</i></a></span></div>  
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :menu_name %>
-    <%= form.text_field :menu_name, id: :menu_menu_name %>
+    <div class="right-side">
+      <div class="menu-register-container login-font">          
+        <div class="box blurred-bg tinted">
+          <p class="title">메뉴 등록</p>
+          
+          <div class="menu-register-information-container" >
+            <div class="prompt-field">Menu</div>
+              <input type="text" name="login-name" class="input-field" placeholder="Create a username">
+            <div class="prompt-field">Price</div>
+              <input type="text" name="login-name" class="input-field" placeholder="Create a username">
+            <div class="prompt-field">Conmment</div>
+              <input type="text" name="login-email" class="input-field" placeholder="Enter your e-mail address">
+            <div class="prompt-field">Conmment</div>
+            <select id="foodSelection" class="input-field">
+              <option value="chicken">Chicken</option>
+              <option value="steak">Steak</option>
+              <option value="tacos">Tacos</option>
+              <option value="pizza">Pizza</option>
+            </select>
+            <div class="prompt-field">State</div>
+            <select id="foodSelection" class="input-field">
+              <option value="chicken">Chicken</option>
+              <option value="steak">Steak</option>
+              <option value="tacos">Tacos</option>
+              <option value="pizza">Pizza</option>
+            </select>
+            <div class="prompt-field">Image</div>
+            <div class="form-group">
+              <label class="label">
+                <i class="material-icons">attach_file</i>
+                <span class="img_title">Add Image</span>
+                <input type="file" />
+              </label>
+            </div>  
+            <input type="submit"class="btn btn-default btn-register" value="등록"></input>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-  <div class="field">
-    <%= form.label :menu_price %>
-    <%= form.number_field :menu_price, id: :menu_menu_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :menu_image %>
-    <%= form.file_field :menu_image, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :menu_category %>
-    <%= form.text_field :menu_category, id: :menu_menu_category %>
-  </div>
-  <div class="field">
-    <%= form.label :menu_state %>
-    <%= form.text_field :menu_state, id: :menu_menu_state %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

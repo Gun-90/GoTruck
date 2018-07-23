@@ -4,3 +4,6 @@
 
 
 <%= link_to 'Back', truck_menus_path(@truck) %>
+<% content_for 'javascript_content' do %>
+<%= javascript_include_tag params[:controller], media: 'all' %>
+<% end %>

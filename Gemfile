@@ -43,7 +43,7 @@ gem 'jquery-rails'                        #jquery 사용
 gem 'devise-bootstrap-views'              #devise bootstrap 사용
 gem 'rails-i18n', '~> 5.1'                #지역설정 devise 한글작업
 gem 'tinymce-rails'
-
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

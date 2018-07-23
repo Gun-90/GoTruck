@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723071741) do
+ActiveRecord::Schema.define(version: 20180723170828) do
 
   create_table "communities", force: :cascade do |t|
     t.string "community_title"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180723071741) do
     t.string "menu_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "menu_information"
     t.index ["truck_id"], name: "index_menus_on_truck_id"
   end
 
