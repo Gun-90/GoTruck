@@ -4,7 +4,9 @@
   <strong>Truck name:</strong>
   <%= @truck.truck_name %>
 </p>
-
+<%= link_to '메뉴 등록', truck_menus_path(@truck) %>|
+<%= link_to '포스팅 등록', new_truck_posting_path(@truck) %>
+<div>
 <% @menus.each do |menu| %>
       <tr>
         <td><%= menu.menu_state %></td>
@@ -13,7 +15,7 @@
         <td><%= menu.menu_image %></td>
         <td><%= menu.menu_category %></td>
     <% end %>
-<%= link_to '메뉴 등록', truck_menus_path(@truck) %>
+</div>
 <p>
   <strong>Truck x:</strong>
   <%= @truck.truck_x %>
