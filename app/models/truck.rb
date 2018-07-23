@@ -5,4 +5,5 @@ class Truck < ApplicationRecord
     has_many :truck_reviews, dependent: :delete_all
     validates :user, uniqueness: true
     validates :truck_name, :truck_category, presence: true
+    mount_uploader :truck_cover, TruckPictureUploader
 end

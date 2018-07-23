@@ -17,7 +17,7 @@
 
 <p>
   <strong>Menu image:</strong>
-  <%= @menu.menu_image %>
+  <%= image_tag @menu.menu_image.url if @menu.menu_image? %>
 </p>
 
 <p>

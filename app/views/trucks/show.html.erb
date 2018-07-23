@@ -34,7 +34,7 @@
 
 <p>
   <strong>Truck cover:</strong>
-  <%= @truck.truck_cover %>
+  <%= image_tag @truck.truck_cover.thumb.url if @truck.truck_cover? %>
 </p>
 
 <p>
@@ -48,7 +48,7 @@
 
 <%= form_for [@truck, @truck_review] do |r| %>
 <%= r.label 'image' %>
-<%= r.text_field :truck_review_image %>
+<%= r.file_field :truck_review_image ,accept: "image/jpeg, image/jpg, image/gif, image/png"%>
 
 <%= r.label 'review' %>
 <%= r.text_field :truck_review_content %>
@@ -57,6 +57,6 @@
 <% end %>
 
 <% @truck_reviews.each do |r| %>
-<div><%= r.user.nickname %>|<%= r.truck_review_image %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
+<div><%= r.user.nickname %>|<%= image_tag r.image.url if r.image? %><%= r.truck_review_content  %><%#= link_to '수정',review_path(r.id) %><%#= link_to "  |삭제",review_path(r.id), method: :delete %></div>
 
 <% end %> 
