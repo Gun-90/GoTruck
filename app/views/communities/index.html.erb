@@ -15,10 +15,8 @@
   <tbody>
     <% @communities.each do |community| %>
       <tr>
-        <td><%= community.community_title %></td>
-        <td><%= community.community_content %></td>
-        <td><%= community.user %></td>
-        <td><%= link_to 'Show', community %></td>
+        <td><%= link_to community.community_title, community %></td>
+        <td><%= community.user.nickname %></td>
         <td><%= link_to 'Edit', edit_community_path(community) %></td>
         <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

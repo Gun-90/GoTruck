@@ -18,12 +18,8 @@
 
   <div class="field">
     <%= form.label :community_content %>
-    <%= form.text_area :community_content, id: :community_community_content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :community_user_id %>
+    <%= form.text_area :community_content, class: 'tinymce', rows: 40, cols: 120 %>
+    <%= tinymce %>
   </div>
 
   <div class="actions">
