@@ -17,7 +17,7 @@
     <% @trucks.each do |truck| %>
       <tr>
         <td><%= truck.truck_name %></td>
-        <td><%= truck.truck_cover %></td>
+        <td><%= image_tag truck.truck_cover.thumb.url if truck.truck_cover? %></td>
         <td><%= truck.truck_category %></td>
         <td><%= link_to 'Show', truck %></td>
         <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
