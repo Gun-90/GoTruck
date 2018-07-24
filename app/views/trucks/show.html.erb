@@ -517,3 +517,6 @@
         </div>
         <!-- /.container -->
     </footer>
+<% content_for 'javascript_content' do %>
+<%= javascript_include_tag params[:controller], media: 'all' %>
+<% end %>

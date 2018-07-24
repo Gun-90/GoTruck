@@ -12,7 +12,7 @@ class TrucksController < ApplicationController
   # GET /trucks/1.json
   def show
     @menus = @truck.menus
-    @truck_reviews = @truck.truck_reviews
+    @truck_reviews = @truck.truck_reviews.page params[:page]
     @truck_review = TruckReview.new
     if Like.find_by(user: current_user, truck: @truck).nil?
       @button = '좋아요'

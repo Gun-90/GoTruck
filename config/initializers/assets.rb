@@ -13,3 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w( menus.js menus.scss )
 Rails.application.config.assets.precompile += %w( trucks.js trucks.scss )
+#Rails.application.config.assets.precompile += %w( trucks.js devise/registrations.scss )
+Rails.application.config.assets.precompile += %w( devise/registrations.css )
+Rails.application.config.assets.precompile += %w( devise/sessions.css )
+Rails.application.config.assets.precompile += %w( communities.css )
