@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :recommend]
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
 
   # GET /trucks
@@ -68,6 +68,10 @@ class TrucksController < ApplicationController
       format.html { redirect_to trucks_url, notice: 'Truck was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def recommend
+    @truck = Truck.all
   end
 
   private

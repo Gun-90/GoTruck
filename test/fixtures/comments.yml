@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  community_comment: MyString
+  user: one
+  community: one
+
+two:
+  community_comment: MyString
+  user: two
+  community: two

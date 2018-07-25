@@ -1,5 +1,195 @@
-<h1>New Truck</h1>
+<%= render 'header', user: @user %>
+		<section class="page-title parallax parallax1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-title-heading">
+							푸드트럭 등록하기
+						</div>
+						<div class="text-heading">
+							당신의 푸드트럭을 도와드립니다.
+						</div>
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay subtitle"></div>
+		</section><!-- /.page-title -->
 
+		<section class="flat-listing">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+					  	<!--<form action="#" class="form-listing" method="get" accept-charset="utf-8">-->
+					    <%= form_with(model: @truck, local: true, html: { class: "form-listing" }) do |form| %>
+                            <% if !user_signed_in? %>
+                              <div class="inner-box">
+                                  <p>If you don’t have an account you can create one below by entering your email address/username.<br />
+                                  Your account details will be confirmed via email.</p>
+                                  <div class="btn-more">
+                                    <a href="#" title="">Sign in</a>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div><!-- /.inner-box -->
+                            <% end %>
+							<div class="inner-box form">
+								<div class="wrap-listing location">
+									<!--<label>Your email</label>-->
+									<!--<input type="email" name="email" >-->
+									<%= form.label :truck_name, "푸드트럭" %>
+                                    <%= form.text_field :truck_name, id: :truck_truck_name, placeholder: "푸드트럭의 이름을 입력하세요"%>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing location">
+									<%= form.label :truck_phone, "대표전화" %>
+                                    <%= form.text_field :truck_phone, id: :truck_truck_phone, placeholder: "대표전화을 입력하세요" %>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing location">
+									<%= form.label :truck_sns, "SNS 주소(선택)" %>
+                                    <%= form.text_field :truck_sns, id: :truck_truck_sns, placeholder: "http://"  %>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing location">
+							    	<%= form.label :truck_sns2, "SNS 주소(선택)"%>
+                                    <%= form.text_field :truck_sns2, id: :truck_truck_sns2, placeholder: "http://" %>
+								</div><!-- /.wrap-listing -->
+							</div><!-- /.inner-box -->
+							<div class="inner-box form">
+							    <div class="wrap-listing location">
+									<label>푸드트럭 위치 (선택)</label>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing your-email">
+                                  <input type="text" class="form-control" placeholder="도로면 주소 & 지번 주소">   
+                                </div>
+                                <button class="btn btn-default" type="button">찾기</button>
+                                  
+								<div class="pdmap style2" id="flat-map">
+						            <div class="flat-maps" data-address="Thành phố New York, Tiểu bang New York" data-name="Themesflat Map"></div>
+						            
+						                <div id="map" style="width:100%;height:500px;"></div>
+						            
+						        </div><!-- /#flat-map -->
+						        <div class="wrap-listing your-email">
+									<%= form.text_field :truck_x, id: :truck_truck_x %>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing your-name">
+									<%= form.text_field :truck_y, id: :truck_truck_y %>
+								</div><!-- /.wrap-listing -->
+							</div>
+						
+							<div class="inner-box style3">
+								<div class="one-half">
+									<label>Your Business Images</label>
+									<div class="browse">
+										<p>Drag & Drop files here</p>
+										<span>or</span>
+										<div class="upload">
+											<span>Browse files</span>
+											<input type="file" name="upload-file">
+										</div>
+									</div>
+								</div><!-- /.one-half -->
+								<div class="one-half">
+									<label>Your Business video(Optional)</label>
+									<input type="text" value="" placeholder="ex: https://www.youtube.com/watch?v=XZiki0D_81U">
+									<button class="submit-form-listing" type="submit">Save & Preview</button>
+								</div><!-- /.one-half -->
+								<div class="clearfix"></div>
+							</div><!-- /.inner-box -->
+					    <%end %>
+					    <!--</form>-->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-listing -->
+
+		<section class="flat-row flat-subscribe">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-7">
+						<div class="subscribe-text">
+							Subscribe and be notified about new locations
+						</div>
+					</div><!-- /.col-sm-7 -->
+					<div class="col-sm-5">
+						<div class="subscribe-form">
+							<form action="#" method="get" accept-charset="utf-8">
+								<div class="subscribe-content">
+									<div class="input-field">
+										<input type="email" name="yourEmail" placeholder="Your Email" />
+									</div>
+									<button><span class="arrow_right"></span></button>
+								</div>
+							</form>
+						</div><!-- /.subscribe-form -->
+					</div><!-- /.col-sm-5 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-subscibe -->
+
+<%= render 'footer' %>		
+<!-- Javascript -->
 <%= render 'form', truck: @truck %>
 
 <%= link_to 'Back', trucks_path %>
+<% content_for 'javascript_content' do %>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=PG2miqcCizsFVDMBnuiu&submodules=geocoder"></script>
+<script>
+var mapOptions = {
+      //쓸모없는 3가지 - scale, logo, mapData
+      scaleControl: false,
+      logoControl: false,
+      mapDataControl: false, 
+      zoomControl: true,
+      zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,  //SMALL or LARGE(default : LARGE)
+        position: naver.maps.Position.RIGHT_BOTTOM
+      },
+      mapTypeControl: true,
+      //추가 가능 - 줌 범위 설정  
+      minZoom: 4,
+      maxZoom: 13,
+  };
+  
+  //naver.maps 대신 N으로 사용가능
+  var map = new N.Map('map', mapOptions);
+  
+    
+    function initGeocoder() {
+        var latlng = map.getCenter();
+        var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng); // 위/경도 -> UTMK
+        var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+        var naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128); // TM128 -> NAVER
+        
+        infoWindow = new naver.maps.InfoWindow({
+            content: ''
+        });
+    
+        map.addListener('click', function(e) {
+            var latlng = e.coord,
+                utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng),
+                tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk),
+                naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128);
+    
+            utmk.x = parseFloat(utmk.x.toFixed(1));
+            utmk.y = parseFloat(utmk.y.toFixed(1));
+    		
+            infoWindow.setContent([
+                '<div style="padding:10px;width:50px;font-size:14px;line-height:30px;">',
+                '<img src="https://lh3.googleusercontent.com/5UjZsX7HpY4ULmV__EU1oEfooYukO6U5-E3m4yNKk0G_LnX2BJdO_s5s0Vnuz4ktPw=s180" alt="">',
+                '</div>'
+            ].join(''));
+            
+            $('#truck_truck_x').val(utmk.x)
+            $('#truck_truck_y').val(utmk.y)
+            infoWindow.open(map, latlng);
+            console.log('LatLng: ' + latlng.toString());
+            console.log('UTMK: ' + utmk.toString());
+            console.log('TM128: ' + tm128.toString());
+            console.log('NAVER: ' + naverCoord.toString());
+            
+        });
+    }
+    
+    naver.maps.onJSContentLoaded = initGeocoder;
+</script>
+<%= javascript_include_tag 'trucks_1', media: 'all' %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+<% end %>

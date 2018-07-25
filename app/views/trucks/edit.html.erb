@@ -1,6 +1,11 @@
+<%= render 'header', user: @user %>
 <h1>Editing Truck</h1>
 
 <%= render 'form', truck: @truck %>
 
 <%= link_to 'Show', @truck %> |
 <%= link_to 'Back', trucks_path %>
+<% content_for 'javascript_content' do %>
+<%= javascript_include_tag 'trucks_1', media: 'all' %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+<% end %>

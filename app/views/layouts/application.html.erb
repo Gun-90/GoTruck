@@ -4,23 +4,25 @@
     <title>Gotruck</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
     <%= stylesheet_link_tag    'application', media: 'all'%>
-    <%= stylesheet_link_tag params[:controller], media: 'all' %>
+    <% if params[:controller] == 'trucks' %>
+      <% if ['index', 'edit', 'new', 'recommend'].include? params[:action] %>
+        <%= stylesheet_link_tag 'trucks_1', media: 'all' %>
+      <% elsif ['show'].include? params[:action] %>
+        <%= stylesheet_link_tag 'trucks_2', media: 'all' %>
+      <% else %>
+        <%= stylesheet_link_tag params[:controller], media: 'all' %>
+      <% end %>
+    <% else %>
+      <%= stylesheet_link_tag params[:controller], media: 'all' %>
+    <% end %>
+    
+    
     <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete, data: { confirm: '로그 아웃 하시겠습니까?' }) %>        
-      </li>
-    <% else %>
-      <li>
-      <%= link_to('Login', new_user_session_path)  %>  
-      </li>
-    <% end %>
-    <%= link_to '회원가입',new_user_registration_path %>
+    
 
     <%= yield %>
     <%= yield 'javascript_content' %>

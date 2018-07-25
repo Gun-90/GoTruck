@@ -20,6 +20,7 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
+    @truck= Truck.find(params[:truck_id])
   end
 
   # GET /menus/1/edit

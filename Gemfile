@@ -35,7 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 #추가한 내용
 gem 'devise'                              #회원관리 CURD
-gem 'bootstrap'                           #bootstrap 사용
+# gem 'bootstrap'                           #bootstrap 사용
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'sass-rails', '~> 5.0'
 gem 'carrierwave'                         #업로더 기능 사용
 gem 'mini_magick'                         #이미지 파일 처리
 gem 'pry-rails'                           #pry console창 사용
@@ -61,6 +63,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails_db'
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

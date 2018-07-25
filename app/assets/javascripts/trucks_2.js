@@ -1,0 +1,16 @@
+//= require trucks_2/jquery.min
+//= require trucks_2/bootstrap.min
+//= require trucks_2/SmoothScroll.min
+//= require trucks_2/modernizr.min
+//= require trucks_2/jquery.easing.min
+//= require trucks_2/grayscale
+//= require trucks_2/top
+//= require trucks_2/jarallax
+//= require trucks_2/aos
+//= require trucks_2/aos2
+//= require trucks_2/jqBootstrapValidation
+//= require trucks_2/contact_me
+//= require trucks_2/jQuery.lightninBox
+//= require trucks_2/jquery.pogo-slider.min
+//= require trucks_2/main
+//= require trucks_2/osSlider

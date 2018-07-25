@@ -1,4 +1,355 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header', user: @user %>
+
+		<section class="page-title style2 parallax parallax1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-title-heading">
+							Welcome GoTruck!
+						</div>
+						<div class="text-heading">
+							푸드트럭의 모든것 GoTruck에 오신걸 환영합니다.
+						</div>
+						<div class="wrap-box-search">
+							<form action="#" method="get" accept-charset="utf-8">
+								<span>
+									<input type="text" placeholder="What are you looking for ?" name="search">
+								</span>
+								<span class="location">
+									<span class="ti-location-pin"></span>
+									<input type="text" placeholder="Location" name="location">
+								</span>
+								<span class="categories">
+									<span class="ti-angle-down"></span>
+									<select name="categories">
+										<option value="">All Categories</option>
+										<option value="">All Categories</option>
+										<option value="">All Categories</option>
+									</select>
+								</span>
+								<button type="submit" class="search-btn">Search</button>
+							</form><!-- /form -->
+						</div><!-- /.wrap-box-search -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.page-title -->
+
+		<section class="flat-row flat-iconbox style1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="flat-row-title center">
+							<h2>See How It Works</h2>
+							<p>
+								Discover how Dailist can you help you find everything you want.
+							</p>
+						</div><!-- /.flat-row-title -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="iconbox style1">
+							<div class="box-header">
+								<div class="iconbox-icon">
+									<img src="<%= asset_path "page/iconbox-03.png"%>" alt="">
+								</div>
+							</div><!-- /.box-header -->
+							<div class="box-content">
+								<h4 class="box-title">Choose What To Do</h4>
+								<div class="box-desc">
+									Looking for a cozy hotel to stay, a restaurant to eat or a mall to do some shopping?
+								</div>
+							</div><!-- /.box-content -->
+						</div><!-- /.iconbox style1 -->
+					</div><!-- /.col-sm-4 -->
+					<div class="col-sm-4">
+						<div class="iconbox style1">
+							<div class="box-header">
+								<div class="iconbox-icon">
+									<img src="<%= asset_path "page/iconbox-02.png"%>" alt="">
+								</div>
+							</div><!-- /.box-header -->
+							<div class="box-content">
+								<h4 class="box-title">Find What You Want</h4>
+								<div class="box-desc">
+									Search and filter hundreds of listings, read reviews and find the perfect spot.
+								</div>
+							</div><!-- /.box-content -->
+						</div><!-- /.iconbox style1 -->
+					</div><!-- /.col-sm-4 -->
+					<div class="col-sm-4">
+						<div class="iconbox style1">
+							<div class="box-header">
+								<div class="iconbox-icon">
+									<img src="<%= asset_path "page/iconbox-01.png"%>" alt="">
+								</div>
+							</div><!-- /.box-header -->
+							<div class="box-content">
+								<h4 class="box-title">Explore Amazing Places</h4>
+								<div class="box-desc">
+									Go and have a good time or even make a booking directly from the listing page.
+								</div>
+							</div><!-- /.box-content -->
+						</div><!-- /.iconbox style1 -->
+					</div><!-- /.col-sm-4 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-iconbox style1 -->	
+		
+		
+
+		<section id="section5" class="flat-row flat-imagebox style5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="flat-row-title center famous">
+							<h2>지역별 푸드트럭</h2>
+							<p>
+								다양한 지역에 위치한 트력들을 소개합니다.
+							</p>
+						</div>
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+				<div class="row">
+					<div class="col-md-3 col-sm-6">
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/seoul.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">서울</a>
+								<p>Seoul</p>
+							</div>
+						</div><!-- /.imaebox style5 -->
+						<div class="height20"></div>
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/incheon.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">인천</a>
+								<p>Incheon</p>
+							</div>
+						</div><!-- /.imaebox style5 -->
+					</div><!-- /.col-md-3 col-sm-6 -->
+					<div class="col-md-3 col-sm-6">
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/gyeonggi-do.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">경기도</a>
+								<p>Gyeonggi-do</p>
+							</div>
+						</div><!-- /.imagebox style5 -->
+						<div class="height20"></div>
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/chungcheong-do.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">충청도</a>
+								<p>Chungcheong-do</p>
+							</div>
+						</div><!-- /.imagebox style5 -->
+					</div><!-- /.col-md-3 col-sm-6 -->
+					<div class="col-md-3 col-sm-6">
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/gyeongsang-do.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">경상도</a>
+								<p>Gyeongsang-do</p>
+							</div>
+						</div><!-- /.imaebox style5 -->
+						<div class="height20"></div>
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/jeolla-do.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">전라도</a>
+								<p>Jeolla-do</p>
+							</div>
+						</div><!-- /.imaebox style5 -->
+					</div><!-- /.col-md-3 col-sm-6 -->
+					<div class="col-md-3 col-sm-6">
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/gangwon-do.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">강원도</a>
+								<p>Gangwon-do</p>
+							</div>
+						</div><!-- /.imagebox style5 -->
+						<div class="height20"></div>
+						<div class="imagebox style5">
+							<div class="box-image">
+								<img src="<%= asset_path "page/jejudo.png"%>" alt="">
+								<div class="overlay"></div>
+							</div>
+							<div class="box-content">
+								<a href="#" title="">제주도</a>
+								<p>Jejudo</p>
+							</div>
+						</div><!-- /.imagebox style5 -->
+					</div><!-- /.col-md-3 col-sm-6 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-imagebx style5 -->
+
+		<section class="flat-row flat-subscribe">
+			<div class="container">
+			
+			</div><!-- /.container -->
+		</section><!-- /.flat-subscibe -->
+		
+		<section class="flat-row flat-imagebox background">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="flat-row-title center famous">
+							<h2>인기 푸드트럭</h2>
+							<p>
+								여러분들의 의견을 반영한 인기있는 푸드트럭을 소개합니다.
+							</p>
+						</div><!-- /.flat-row-title -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+				<div class="row">
+					<div class="col-md-4">
+						<div class="imagebox">
+							<div class="box-imagebox">
+								<div class="box-header">
+									<div class="box-image">
+										<img src="<%= asset_path "page/img-01.png"%>" alt="">
+										<a href="#" title="">#곰파곰파</a>
+										<div class="overlay"></div>
+										<div class="queue">
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star-half-o" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									<div class="box-title ad">
+										<span>Ad</span><a href="#" title="">AN Restaurant</a><i class="fa fa-check-circle" aria-hidden="true"></i>
+									</div>
+									<ul class="rating">
+										<li>5 rating</li>
+										<li>Moderate</li>
+										<li>Restaurant</li>
+									</ul>
+									<div class="box-desc">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									</div>
+								</div><!-- /.box-content -->
+								<ul class="location">
+									<li class="address"><span class="ti-location-pin"></span>수영구, 부산</li>
+									<li class="closed">Closed Now !</li>
+								</ul><!-- /.location -->
+							</div><!-- /.box-imagebox -->
+						</div><!-- /.imaegbox -->
+					</div><!-- /.col-md-4 -->
+					<div class="col-md-4">
+						<div class="imagebox">
+							<div class="box-imagebox">
+								<div class="box-header">
+									<div class="box-image">
+										<img src="<%= asset_path "page/img-02.png"%>" alt="">
+										<a href="#" title="">#꼬끼오</a>
+										<div class="overlay"></div>
+										<div class="queue">
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="false"></i>
+										</div>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									<div class="box-title">
+										<a href="#" title="">Acantara</a><i class="fa fa-check-circle" aria-hidden="true"></i>
+									</div>
+									<ul class="rating">
+										<li>10 rating</li>
+										<li>Ultra High End</li>
+										<li>Hotel</li>
+									</ul>
+									<div class="box-desc">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									</div>
+								</div><!-- /.box-content -->
+								<ul class="location">
+									<li class="address"><span class="ti-location-pin"></span>부평역, 인천</li>
+									<li class="open">Open Now !</li>
+								</ul><!-- /.location -->
+							</div><!-- /.box-imagebox -->
+						</div><!-- /.imaegbox -->
+					</div><!-- /.col-md-4 -->
+					<div class="col-md-4">
+						<div class="imagebox">
+							<div class="box-imagebox">
+								<div class="box-header">
+									<div class="box-image">
+										<img src="<%= asset_path "page/img-03.png"%>" alt="">
+										<a href="#" title="">#야미타임</a>
+										<div class="overlay"></div>
+										<div class="queue">
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="false"></i>
+											<i class="fa fa-star" aria-hidden="false"></i>
+										</div>
+									</div>
+								</div><!-- /.box-header -->
+								<div class="box-content">
+									<div class="box-title">
+										<a href="#" title="">Intercontinental</a><i class="fa fa-check-circle" aria-hidden="true"></i>
+									</div>
+									<ul class="rating">
+										<li>6 rating</li>
+										<li>Pricey</li>
+										<li>Hotel</li>
+									</ul>
+									<div class="box-desc">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									</div>
+								</div><!-- /.box-content -->
+								<ul class="location">
+									<li class="address"><span class="ti-location-pin"></span>강남구, 서울</li>
+									<li class="open">Open Now !</li>
+								</ul><!-- /.location -->
+							</div><!-- /.box-imagebox -->
+						</div><!-- /.imaegbox -->
+					</div><!-- /.col-md-4 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-imagebox style2 -->
+
+
+		<section class="flat-row flat-subscribe">
+			<div class="container">
+			</div><!-- /.container -->
+		</section><!-- /.flat-subscibe -->
+
+<%= render 'footer' %>
 
 <h1>Trucks</h1>
 <%= link_to '트럭 등록', new_truck_path %>
@@ -26,5 +377,10 @@
 </table>
 
 <br>
+
+<% content_for 'javascript_content' do %>
+<%= javascript_include_tag 'trucks_1', media: 'all' %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+<% end %>
 
 
