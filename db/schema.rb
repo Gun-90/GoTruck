@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724084447) do
+ActiveRecord::Schema.define(version: 20180725005127) do
 
   create_table "comments", force: :cascade do |t|
     t.string "community_comment"
@@ -31,18 +31,11 @@ ActiveRecord::Schema.define(version: 20180724084447) do
     t.index ["user_id"], name: "index_communities_on_user_id"
   end
 
-  create_table "followings", force: :cascade do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "truck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["truck_id"], name: "index_followings_on_truck_id"
-    t.index ["user_id"], name: "index_followings_on_user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "truck_id"
     t.index ["truck_id"], name: "index_likes_on_truck_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
@@ -58,50 +51,6 @@ ActiveRecord::Schema.define(version: 20180724084447) do
     t.datetime "updated_at", null: false
     t.text "menu_information"
     t.index ["truck_id"], name: "index_menus_on_truck_id"
-  end
-
-  create_table "posting_parts", force: :cascade do |t|
-    t.text "posting_content"
-    t.string "posting_image"
-    t.string "posting_video"
-    t.integer "posting_id"
-    t.string "posting_link"
-    t.string "posting_subtitle"
-    t.float "posting_x"
-    t.float "posting_y"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["posting_id"], name: "index_posting_parts_on_posting_id"
-  end
-
-  create_table "posting_reviews", force: :cascade do |t|
-    t.text "posting_review_content"
-    t.integer "user_id"
-    t.integer "posting_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["posting_id"], name: "index_posting_reviews_on_posting_id"
-    t.index ["user_id"], name: "index_posting_reviews_on_user_id"
-  end
-
-  create_table "postings", force: :cascade do |t|
-    t.string "posting_title"
-    t.integer "truck_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["truck_id"], name: "index_postings_on_truck_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.string "profile_name"
-    t.string "profile_mobile"
-    t.string "profile_adress"
-    t.string "profile_birthday"
-    t.string "profile_image"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "truck_reviews", force: :cascade do |t|
