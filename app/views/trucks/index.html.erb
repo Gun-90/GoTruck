@@ -350,34 +350,6 @@
 		</section><!-- /.flat-subscibe -->
 
 <%= render 'footer' %>
-
-<h1>Trucks</h1>
-<%= link_to '트럭 등록', new_truck_path %>
-<table>
-  <thead>
-    <tr>
-      <th>Truck name</th>
-      <th>Truck category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trucks.each do |truck| %>
-      <tr>
-        <td><%= truck.truck_name %></td>
-        <td><%= image_tag truck.truck_cover.thumb.url if truck.truck_cover? %></td>
-        <td><%= truck.truck_category %></td>
-        <td><%= link_to 'Show', truck %></td>
-        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <% content_for 'javascript_content' do %>
 <%= javascript_include_tag 'trucks_1', media: 'all' %>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
