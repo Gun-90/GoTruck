@@ -1,0 +1,259 @@
+<div id="map" style="width:100%;height:400px;"></div>
+
+
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=PG2miqcCizsFVDMBnuiu&submodules=geocoder"></script>
+<script>
+  var mapOptions = {
+      //쓸모없는 3가지 - scale, logo, mapData
+      scaleControl: false,
+      logoControl: false,
+      mapDataControl: false, 
+      zoomControl: true,
+      zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,  //SMALL or LARGE(default : LARGE)
+        position: naver.maps.Position.RIGHT_BOTTOM
+      },
+      mapTypeControl: true,
+      //추가 가능 - 줌 범위 설정  
+      minZoom: 4,
+      maxZoom: 13,
+  };
+  
+  //naver.maps 대신 N으로 사용가능
+  var map = new N.Map('map', mapOptions);
+  // var jeju = new N.LatLng(33.3590628, 126.534361);
+  // var naver_addr = new N.LatLng(37.3595704, 127.105399);
+  var cityhall = new naver.maps.LatLng(37.5666805, 126.9784147);
+  
+  map.setCenter(cityhall); // 중심 좌표 이동
+  map.setZoom(11);     // 줌 레벨 변경 1~13
+  
+  // var data = <%#= @schools.html_safe %>;
+  var data;
+  var markers = [];
+  var infoWindows = [];
+  getData();
+  
+  function getData(){
+    var csrf_token = $("meta[name='csrf-token']").attr('content'); //토큰값 가져오기
+    var bounds = map.getBounds();
+    var max = bounds._ne;
+    var min = bounds._sw;
+    //중복되는 마커들을 삭제
+    //for of 리스트 안에 있는 값을 꺼내는 형식
+    for (marker of markers) {
+      marker.setMap(null);
+    }
+    
+    $.ajax({
+      url: '/map_data',
+      type: "POST", 
+      data: {authenticity_token: csrf_token,
+             min: JSON.stringify(min),
+             max: JSON.stringify(max)}, //지도의 경계 좌표를 데이터로 보내줌
+      dataType: 'json',
+      success: function(map_data){
+        data = map_data;
+        makeMarkersInfos();
+        addEvents();
+      }
+    });
+  }
+  // var data = [
+  //   {name: "아리차이", address: "서울특별시 관악구 신림동길 4", link: "https://store.naver.com/restaurants/detail?id=11704746", x: 126.9282765, y: 37.4876462},
+  //   {name: "한우등촌골", address: "서울특별시 강서구 등촌로 201", link: "https://store.naver.com/restaurants/detail?id=35966485", x:126.86273, y: 37.5476847},
+  //   {name: "수유부추곱창", address: "서울특별시 강북구 도봉로87길 26-21", link: "https://store.naver.com/restaurants/detail?id=37111836", x: 127.0247721, y: 37.6393168},
+  //   {name: "강천민물장어", address:"서울특별시 강동구 올림픽로 834 한강시티라이프", link: "https://store.naver.com/restaurants/detail?id=18905396", x: 127.1297937, y: 37.5553916 }
+  // ];
+  
+
+  
+  function makeMarkersInfos(){
+    for (var i=0; i < data.length; i++){
+    var school = data[i];
+    var name = school.name;
+    var address = school.address;
+    var lat = school.lat;
+    var lng = school.lng;
+    
+    var marker = new N.Marker({
+      position: new N.LatLng(lat, lng),
+      map: map,
+      icon: {
+        url: 'https://navermaps.github.io/maps.js/docs/img/example/sally.png',
+        size: new naver.maps.Size(50, 52), //이미지 크기만큼 적어야 한다. 작으면 그만큼 짤려서 나옴
+        origin: new naver.maps.Point(0, 0), //이미지 위치가 옮겨진다. 하지만 화면에서는 짤려서 나옴.
+        anchor: new naver.maps.Point(25, 26) //이미지가 해당 위치에 중간에 올려면 이미지크기의 반값으로 x,y값을 넣어야 한다.
+      },
+      animation: 1 // 애니메니션 효과 두가지가 있음 1 = 계속 바운스, 2 = 등장시 떨어짐
+    });
+    
+    var school_content = [
+                    "<p>학교명 : "+name+"</p>",
+                    "<p>주소 : "+address+"</p>"
+                  ].join("");
+    var infoWindow = new N.InfoWindow({
+      content: school_content
+    });
+    
+    markers.push(marker);
+    infoWindows.push(infoWindow);
+    }
+  }
+  // for (var i=0; i < data.length; i++){
+  //   var restaurants = data[i];
+  //   var name = restaurants.name;
+  //   var address = restaurants.address;
+  //   var link = restaurants.link;
+  //   var lat = restaurants.y;
+  //   var lng = restaurants.x;
+  //   var marker = new N.Marker({
+  //     position: new N.LatLng(lat, lng),
+  //     map: map
+  //   });
+  //   var restaurant_content = [
+  //                   "<p>음식점명 : "+name+"</p>",
+  //                   "<p>주소 : "+address+"</p>",
+  //                   "<a href='"+ link +"' target='_blank'>알아보기</a>"
+  //                 ].join("");
+  //   var infoWindow = new N.InfoWindow({
+  //     content: restaurant_content
+  //   });
+    
+  //   markers.push(marker);
+  //   infoWindows.push(infoWindow);
+  // }
+  
+  
+  //마커생성
+  // var marker1 = new N.Marker({
+  //   position: jeju,
+  //   map: map
+  // });
+  
+  // var marker2 = new N.Marker({
+  //   position: naver_addr,
+  //   map: map
+  // });
+  
+  // var marker3 = new N.Marker({
+  //   map: map,
+  //   position: cityhall
+  // });
+  
+  // var markers = [marker1, marker2, marker3];
+  
+  
+  // var contentString1 = "<p>여기가 제주도입니다!</p>";
+  
+  // var contentString2 = "<a href='http://naver.com'>네이버로 가기</a>";
+  
+  // var contentString3 = [
+  //   '<div class="iw_inner">',
+  //   '   <h3>서울특별시청</h3>',
+  //   '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br>',
+  //   '       <img src="./img/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br>',
+  //   '       02-120 | 공공,사회기관 > 특별,광역시청<br>',
+  //   '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+  //   '   </p>',
+  //   '</div>'
+  // ].join('');
+  
+  // var infowindow1 = new N.InfoWindow({
+  //     content: contentString1
+  // });
+  
+  // var infowindow2 = new N.InfoWindow({
+  //     content: contentString2
+  // });
+  
+  // var infowindow3 = new N.InfoWindow({
+  //     content: contentString3
+  // });
+  // var infoWindows = [infowindow1, infowindow2, infowindow3];
+  // N.Event.addListener(marker1, "click", function(e) {
+  //     if (infowindow1.getMap()) {
+  //         infowindow1.close();
+  //     } else {
+  //         infowindow1.open(map, marker1);
+  //     }
+  // });
+  
+  // N.Event.addListener(marker2, "click", function(e) {
+  //     if (infowindow2.getMap()) {
+  //         infowindow2.close();
+  //     } else {
+  //         infowindow2.open(map, marker2);
+  //     }
+  // });
+  
+  // N.Event.addListener(marker3, "click", function(e) {
+  //     if (infowindow3.getMap()) {
+  //         infowindow3.close();
+  //     } else {
+  //         infowindow3.open(map, marker3);
+  //     }
+  // });
+  
+  
+  
+  
+  // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
+  function getClickHandler(seq) {
+      return function(e) {
+          var marker = markers[seq],
+              infoWindow = infoWindows[seq];
+  
+          if (infoWindow.getMap()) {
+              infoWindow.close();
+          } else {
+              infoWindow.open(map, marker);
+          }
+      }
+  }
+  
+  function addEvents(){
+    for (var i=0, ii=markers.length; i<ii; i++) {
+        naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+    }
+  }
+
+  // idle은 지도의 움직임이 종료되었을 경우 이벤트가 발생함
+  N.Event.addListener(map, 'idle', function() {
+      getData();
+      //updateMarkers(map, markers);
+  });
+  
+  function updateMarkers(map, markers) {
+  
+      var mapBounds = map.getBounds(); //지도의 남서쪽 좌욮, 북동쪽 좌표를 가져옴
+      var marker, position;
+  
+      for (var i = 0; i < markers.length; i++) {
+  
+          marker = markers[i]
+          position = marker.getPosition(); //마커의 좌표를 가져옴
+  
+          if (mapBounds.hasLatLng(position)) {  //각 마커의 좌표가 경계에 포함되어 있는지 확인함
+              showMarker(map, marker);
+          } else {
+              hideMarker(map, marker);
+          }
+      }
+  }
+  
+  function showMarker(map, marker) {
+  
+      if (marker.getMap()) return;
+      marker.setMap(map);
+  }
+  
+  function hideMarker(map, marker) {
+  
+      if (!marker.getMap()) return;
+      marker.setMap(null);
+  }
+
+
+
+</script>
