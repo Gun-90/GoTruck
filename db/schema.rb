@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725005127) do
+ActiveRecord::Schema.define(version: 20180725022107) do
 
   create_table "comments", force: :cascade do |t|
     t.string "community_comment"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20180725005127) do
     t.datetime "updated_at", null: false
     t.text "menu_information"
     t.index ["truck_id"], name: "index_menus_on_truck_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "lat"
+    t.float "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lat"], name: "index_schools_on_lat"
+    t.index ["lng"], name: "index_schools_on_lng"
   end
 
   create_table "truck_reviews", force: :cascade do |t|

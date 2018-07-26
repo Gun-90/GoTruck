@@ -73,6 +73,30 @@ class TrucksController < ApplicationController
   def recommend
     @truck = Truck.all
   end
+  
+   def map_data
+#    @schools = School.all.limit(1000).to_json
+    max = JSON.parse(params[:max])
+    min = JSON.parse(params[:min])
+    
+    min_lat = min['_lat']
+    min_lng = min['_lng']
+    max_lat = max['_lat']
+    max_lng = max['_lng']
+    
+    #해당 바운스 안에 있는 학교만 찾음 - 랜덤 최대 500개
+    @schools = School.where("(lat BETWEEN ? and ? ) and (lng BETWEEN ? and ?)", min_lat, max_lat, min_lng, max_lng).sample(500)
+    
+    respond_to do |format|
+      format.json {render json: @schools}
+    end
+  end
+  
+  #네이버지도 페이지
+  def map
+    @schools = School.all.limit(1000).to_json
+    @search = params[:location]
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <% if params[:controller] == 'trucks' %>
-      <% if ['index', 'edit', 'new', 'recommend'].include? params[:action] %>
+      <% if ['index', 'edit', 'new', 'recommend', 'create', 'update'].include? params[:action] %>
         <%= stylesheet_link_tag 'trucks_1', media: 'all' %>
       <% elsif ['show'].include? params[:action] %>
         <%= stylesheet_link_tag 'trucks_2', media: 'all' %>
+      <% elsif ['map', 'map_data'].include? params[:action] %>
+        <%= stylesheet_link_tag 'maps', media: 'all' %>
       <% else %>
         <%= stylesheet_link_tag params[:controller], media: 'all' %>
       <% end %>

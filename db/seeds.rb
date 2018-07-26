@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+CSV.foreach(Rails.root.join("school.csv"), headers: true) do |row|
+  School.create! row.to_hash
+end

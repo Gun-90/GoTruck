@@ -7,6 +7,6 @@ class Truck < ApplicationRecord
     # has_many :liked_users, through: :likes, source: :user
     
     validates :user, uniqueness: true
-    validates :truck_name, :truck_category, presence: true
+    validates :truck_name, presence: true
     mount_uploader :truck_cover, TruckPictureUploader
 end

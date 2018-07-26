@@ -11,14 +11,14 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.html"><h1>Bistro</h1></a>
+						<a class="navbar-brand" href="index.html"><h1><%=@truck.truck_name%></h1></a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right cl-effect-21">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><%=link_to 'Home', root_path %></li>
 							<li><a href="#about" class="page-scroll">About</a></li>
 							<li><a href="#services" class="page-scroll">Services</a></li>
-							<li><a href="#menu" class="page-scroll">Menu</a></li>
+							<li><a href="/trucks/1/menus/new" class="page-scroll">Menu</a></li>
 							<li><a href="#test" class="page-scroll">Testimonials</a></li>
 							<li><a href="#contact" class="page-scroll">Contact</a></li>
 						</ul>
@@ -386,73 +386,7 @@
 	</div>
 </section>
 <!-- /menu section -->
-<!-- team section -->
-<section class="team-w3l">
-	<div class="container">
-		<h3 class="text-center" data-aos="flip-up">Our Team</h3>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-agile" data-aos="zoom-in">
-			<div class="view view-third">
-                <img src="<%= asset_path "team1.jpg" %>" alt="w3layouts" class="img-responsive"/>
-                <div class="mask">
-                    <h4>Alexander Cage</h4>
-                    <ul class="social-icons1">
-						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-					</ul>
-                    <p class="info">Founder</p>
-                </div>
-            </div>
-		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-agile" data-aos="zoom-in">
-			<div class="view view-third">
-                <img src="<%= asset_path "team2.jpg" %>" alt="w3layouts" class="img-responsive"/>
-                <div class="mask">
-                    <h4>Lady Gaga</h4>
-                    <ul class="social-icons1">
-						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-					</ul>
-                    <p class="info">Manager</p>
-                </div>
-            </div>
-		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-agile" data-aos="zoom-in">
-			<div class="view view-third">
-                <img src="<%= asset_path "team3.jpg" %>" alt="w3layouts" class="img-responsive"/>
-                <div class="mask">
-                    <h4>Rachel Weiz</h4>
-                    <ul class="social-icons1">
-						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-					</ul>
-                    <p class="info">Master Chef</p>
-                </div>
-            </div>
-		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 team-agile" data-aos="zoom-in">
-			<div class="view view-third">
-                <img src="<%= asset_path "team4.jpg" %>" alt="w3layouts" class="img-responsive"/>
-                <div class="mask">
-                    <h4>Max Payne</h4>
-                    <ul class="social-icons1">
-						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-					</ul>
-                    <p class="info">Master Chef</p>
-                </div>
-            </div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</section>
+
 <!-- /team section -->
 <!-- comments -->
 <section class="comment-w3l jarallax">
@@ -495,7 +429,7 @@
 <!-- /comments -->
 <!-- map -->
 <div class="map-agileits-w3layouts" data-aos="zoom-in">
-	<iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d380510.6741687111!2d-88.01234121699822!3d41.83390417061058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1455598377120" style="border:0" allowfullscreen></iframe>
+	<div id="map" style="width:100%;height:500px;opacity:0.9;"></div>
 </div>
 <!-- /map -->
 <!-- footer -->
@@ -504,10 +438,10 @@
 		<div class="col-lg-3 col-md-3 col-sm-6 footer-w3-agile1" data-aos="flip-left">
 			<h4>Links</h4>
 			<ul class="links-w3ls">
-				<li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li><%=link_to root_path do %><i class="fa fa-home" aria-hidden="true"></i> Home<%end%></li>
 				<li><a href="#about" class="page-scroll"><i class="fa fa-universal-access" aria-hidden="true"></i> About</a></li>
 				<li><a href="#services" class="page-scroll"><i class="fa fa-handshake-o" aria-hidden="true"></i> Services</a></li>
-				<li><a href="#menu" class="page-scroll"><i class="fa fa-cutlery" aria-hidden="true"></i> Menu</a></li>
+				<li><a href="/trucks/1/menus/new" class="page-scroll"><i class="fa fa-cutlery" aria-hidden="true"></i> Menu</a></li>
 				<li><a href="#test" class="page-scroll"><i class="fa fa-users" aria-hidden="true"></i> Testimonials</a></li>
 			</ul>
 		</div>
@@ -562,8 +496,31 @@
 <!-- /last section -->
 <!-- back to top -->
 <a href="#0" class="cd-top">Top</a>
+
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=PG2miqcCizsFVDMBnuiu&submodules=geocoder"></script>
+
 <% content_for 'javascript_content' do %>
 <%= javascript_include_tag 'trucks_2', media: 'all' %>
+<script>
+	var position = new naver.maps.LatLng(<%=@truck.truck_x%>, <%=@truck.truck_y%>);
+	var map = new naver.maps.Map('map', {
+    center: position,
+    zoom: 2
+});
+
+var markerOptions = {
+    position: position,
+    map: map,
+    icon: {
+        url: "<%= asset_path('spot.png')%>",
+        size: new naver.maps.Size(50, 52),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 26)
+    }
+};
+
+var marker = new naver.maps.Marker(markerOptions);
+</script>
 <script type="text/javascript">
     /* init Jarallax */
     $('.jarallax').jarallax({
